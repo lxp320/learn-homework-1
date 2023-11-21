@@ -15,13 +15,53 @@
 * Посчитать и вывести суммарное количество продаж всех товаров
 * Посчитать и вывести среднее количество продаж всех товаров
 """
+# Список словарей с входными данными
+# Предполагаю, что для каждого товара представлен результат за год с детализацией по месяцам
+my_sales_base = [
+               {'product': 'iPhone 12', 'items_sold': [363, 500, 224, 358, 480, 476, 470, 216, 270, 388, 312, 186]}, 
+               {'product': 'Xiaomi Mi11', 'items_sold': [317, 267, 290, 431, 211, 354, 276, 526, 141, 453, 510, 316]},
+               {'product': 'Samsung Galaxy 21', 'items_sold': [343, 390, 238, 437, 214, 494, 441, 518, 212, 288, 272, 247]},
+             ]        
+
+# Функция для составления отчета о продажах
+def sales_report(sales_base: list):
+    # Переменная для хранения суммарного количества продаж всех товаров
+    total_sold = 0
+    # Переменная для хранения среднего количества продаж всех товаров
+    average_monthly_sold = 0
+    # Оформление заголовков будущей таблицы с результатами
+    print('Товар'.ljust(20) + ' | Продаж в месяц в среднем  |' + ' Всего продаж в год |')
+    print('.'*70) 
+    # Проход по каждому словарю в списке
+    for dictionary in sales_base:
+        # Переменная для хранения суммарного количества продаж за год конкретного товаров
+        product_total_sold = 0
+        # Проход по каждому месяцу
+        for sale in dictionary['items_sold']:
+            # Расчет суммарного количества продаж для каждого товара за год
+            product_total_sold = product_total_sold + sale
+        # Расчет среднего за месяц количества продаж для каждого товара
+        product_average_monthly_sold = round(product_total_sold / len(dictionary['items_sold']))
+        # Расчет итогового количества продаж за год
+        total_sold = total_sold + product_total_sold
+        # Расчет среднего количества продаж за год
+        average_monthly_sold = average_monthly_sold + product_average_monthly_sold
+        # Вывод данных в виде таблицы
+        print(f'{dictionary["product"].ljust(20)} | {str(product_average_monthly_sold).ljust(25)} | {str(product_total_sold).ljust(18)} |')
+    # Вывод данных в виде таблицы
+    print('.'*70) 
+    print(f'Итого                | {str(average_monthly_sold).ljust(25)} | {str(total_sold).ljust(18)} |')
+
+# Тесты
+#sales_report(my_sales_base)       
 
 def main():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+    # Вызов функции для составления отчета
+    sales_report(my_sales_base)
     
 if __name__ == "__main__":
     main()
