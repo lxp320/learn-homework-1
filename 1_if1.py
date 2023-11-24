@@ -23,27 +23,26 @@ def activity_define(age):
     """
     # Проверка корректности ввода
     try:
-        age = int(age)
+        age = int(age)                        
+        if age < 0:
+            return('Возраст не может быть меньше 0')
+        # Определение рода деятельности
+        elif 0 <= age <= 7:
+            activity = 'ходит в сад'
+            return('Человек ' + activity) 
+        elif 8 <= age <= 17:
+            activity = 'учится в школе'
+            return('Человек ' + activity) 
+        elif 18 <= age <= 24:
+            activity = 'учится в ВУЗе'
+            return('Человек ' + activity) 
+        elif 25 <= age <= 100:
+            activity = 'работает'
+            return('Человек ' + activity) 
+        else:
+            return('Программа не может определить чем занимается человек старше 100 лет')
     except ValueError:
-        return('Необходимо указать целое число')                        
-    if age < 0:
-        return('Возраст не может быть меньше 0')
-    # Определение рода деятельности
-    elif 0 <= age <= 7:
-        activity = 'ходит в сад'
-        return('Человек ' + activity) 
-    elif 8 <= age <= 17:
-        activity = 'учится в школе'
-        return('Человек ' + activity) 
-    elif 18 <= age <= 24:
-        activity = 'учится в ВУЗе'
-        return('Человек ' + activity) 
-    elif 25 <= age <= 100:
-        activity = 'работает'
-        return('Человек ' + activity) 
-    else:
-        return('Программа не может определить чем занимается человек старше 100 лет')
-       
+        return('Необходимо указать целое число')   
 
 #Тесты
 #print(activity_define('семь'))  # Не число

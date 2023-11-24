@@ -14,17 +14,19 @@ def hello_user():
     """
     Замените pass на ваш код
     """
-    # Бесконечный цикл
-    while True:
-        # Попытка принять пользовательский ввод
-        try:
-            input('Как дела?\n')
-        # Перехват KeyboardInterrupt (Ctrl + C)
-        except KeyboardInterrupt:
-            # Вывод прощания
-            print("Пока!")
-            # Выход из бесконечного цикла
-            break
+    # Попытка выполнить код
+    try:
+        # Бесконечный цикл
+        while True:
+            answer = input('\nКак дела?\n -')
+            if answer == 'Стоп':
+                # Выход из бесконечного цикла
+                break
+    # Перехват KeyboardInterrupt (Ctrl + C)
+    except KeyboardInterrupt:
+        # Вывод прощания
+        print("Пока!")
+        
 
     
 if __name__ == "__main__":
