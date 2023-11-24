@@ -12,13 +12,29 @@
   ValueError и TypeError, если приведение типов не сработало.
     
 """
-
-def discounted(price, discount, max_discount=20)
+# Функция для расчета скидки
+def discounted(price, discount, max_discount=20):
     """
     Замените pass на ваш код
     """
-    pass
-    
+    try:
+        price = abs(float(price))
+        discount = abs(float(discount))
+        max_discount = abs(int(max_discount))
+        if max_discount >= 100:
+            raise ValueError
+        if discount >= max_discount:
+            return(price)
+        else:
+            return price - (price * discount / 100)
+    except ValueError:
+        return('Укажите корректные данные')
+    except TypeError:
+        return('Ошибка типов')
+    except KeyboardInterrupt:
+        # Вывод прощания
+        return("Пока!")
+
 if __name__ == "__main__":
     print(discounted(100, 2))
     print(discounted(100, "3"))
