@@ -17,16 +17,24 @@ def discounted(price, discount, max_discount=20):
     """
     Замените pass на ваш код
     """
+    # Попытка выполнить код
     try:
+        # Приведение цены к положительному вещественному числу
         price = abs(float(price))
+        # Приведение скидки к положительному вещественному числу
         discount = abs(float(discount))
+        # Приведение цены к положительному целому числу
         max_discount = abs(int(max_discount))
+        # Вызов исключения для ограничения максимального размера скидки
         if max_discount >= 100:
             raise ValueError
+        # Ограничение размера скидки
         if discount >= max_discount:
             return(price)
+        # Расчет цены со скидкой при условии, что проверки ранее не сработали
         else:
             return price - (price * discount / 100)
+    # Обработка исключений
     except ValueError:
         return('Укажите корректные данные')
     except TypeError:
@@ -36,6 +44,7 @@ def discounted(price, discount, max_discount=20):
         return("Пока!")
 
 if __name__ == "__main__":
+    # Тесты
     print(discounted(100, 2))
     print(discounted(100, "3"))
     print(discounted("100", "4.5"))
