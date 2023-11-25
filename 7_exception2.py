@@ -30,7 +30,7 @@ def discounted(price, discount, max_discount=20):
             raise ValueError
         # Ограничение размера скидки
         if discount >= max_discount:
-            return(price)
+            return price
         # Расчет цены со скидкой при условии, что проверки ранее не сработали
         else:
             return price - (price * discount / 100)

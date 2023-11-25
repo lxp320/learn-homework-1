@@ -20,16 +20,16 @@ def string_comparison(str1, str2):
     if isinstance(str1, str) and isinstance(str2, str):
         # Проверка равны ли строки
         if str1 == str2:
-            return(1)
+            return 1
         # Проверка длиннее ли первая строка
         elif len(str1) > len(str2):
-            return(2)
+            return 2
         # Проверка равнали вторая строка 'learn'
         elif str2 == 'learn':
-            return(3)
+            return 3
     # Возвращаем 0, если str1 или str2 не строка
     else:
-        return(0)
+        return 0
 
 #Тесты
 #print(string_comparison(1, '1'))          # Не строки
