@@ -14,7 +14,9 @@ def hello_user():
     """
     Замените pass на ваш код
     """
-    pass
+    # При ответе "Хорошо" условие будет False
+    while input('Как дела?\n') != 'Хорошо':
+        pass
 
     
 if __name__ == "__main__":

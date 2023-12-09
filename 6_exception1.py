@@ -9,12 +9,25 @@
   и завершала работу при помощи оператора break
     
 """
-
+# Функция вопрос)
 def hello_user():
     """
     Замените pass на ваш код
     """
-    pass
+    # Попытка выполнить код
+    try:
+        # Бесконечный цикл
+        while True:
+            answer = input('\nКак дела?\n -')
+            if answer == 'Стоп':
+                # Выход из бесконечного цикла
+                break
+    # Перехват KeyboardInterrupt (Ctrl + C)
+    except KeyboardInterrupt:
+        # Вывод прощания
+        print("Пока!")
+        
+
     
 if __name__ == "__main__":
     hello_user()
